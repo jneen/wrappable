@@ -1,8 +1,9 @@
 # rvm
 .rvmrc
 
-# bundler
+# bundler / rubygems
 Gemfile.lock
+*.gem
 
 # misc
 tmp/
