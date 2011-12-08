@@ -24,10 +24,17 @@ module Wrappable
     # by default, delegate to :@wrapped, so you don't have
     # to pass the :to => ... option
     def delegate(*args)
-      opts = args.extract_options!
-      opts[:to] ||= :@wrapped
+      args = args.dup
 
-      super(*args, opts)
+      if args.last.is_a? Hash
+        opts = args.pop
+      else
+        opts = {}
+      end
+
+      opts[:to] ||= :wrapped
+
+      super(*args << opts)
     end
   end
 
@@ -43,5 +50,9 @@ module Wrappable
     end
 
     self
+  end
+
+  class Base
+    include Wrappable
   end
 end

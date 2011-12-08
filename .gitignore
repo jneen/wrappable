@@ -1,0 +1,8 @@
+# rvm
+.rvmrc
+
+# bundler
+Gemfile.lock
+
+# misc
+tmp/
