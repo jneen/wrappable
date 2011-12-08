@@ -56,3 +56,5 @@ module Wrappable
     include Wrappable
   end
 end
+
+load File.expand_path('wrappable/version.rb', File.dirname(__FILE__))
