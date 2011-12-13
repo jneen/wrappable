@@ -40,7 +40,7 @@ module Wrappable
 
   attr_reader :wrapped
   def initialize(wrapped, opts={})
-    @wrapped = wrapped
+    wrap!(wrapped)
     set!(opts)
   end
 
@@ -50,6 +50,10 @@ module Wrappable
     end
 
     self
+  end
+
+  def wrap!(o)
+    @wrapped = o
   end
 
   class Base
