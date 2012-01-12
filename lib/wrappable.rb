@@ -15,7 +15,10 @@ module Wrappable
       end
     end
 
-    alias [] wrap
+    # use a 'soft alias' that follows overrides
+    def [](*a)
+      wrap(*a)
+    end
 
     def wraps(m)
       alias_method m, :wrapped
