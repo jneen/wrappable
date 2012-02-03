@@ -59,6 +59,14 @@ module Wrappable
     @wrapped = o
   end
 
+  def wrapped?
+    if wrapped.respond_to? :present?
+      wrapped.present?
+    else
+      !!wrapped
+    end
+  end
+
   class Base
     include Wrappable
   end
